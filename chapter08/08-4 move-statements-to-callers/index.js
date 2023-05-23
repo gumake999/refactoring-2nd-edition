@@ -4,6 +4,7 @@ function renderPerson(outStream, person) {
   outStream.write(`<p>${person.name}</p>\n`);
   renderPhoto(outStream, person.photo);
   emitPhotoData(outStream, person.photo);
+  outStream.write(`<p>위치: ${photo.location}</p>`);
 }
 
 function listRecentPhotos(outStream, photos) {
@@ -12,12 +13,12 @@ function listRecentPhotos(outStream, photos) {
     .forEach((p) => {
       outStream.write('<div>\n');
       emitPhotoData(outStream, p);
+      outStream.write(`<p>위치: ${photo.location}</p>\n`);
       outStream.write('</div>\n');
     });
 }
 
 function emitPhotoData(outStream, photo) {
   outStream.write(`<p>제목: ${p.title}</p>`);
-  outStream.write(`<p>제목: ${photo.date.toString()}</p>`);
-  outStream.write(`<p>제목: ${photo.location}</p>`);
+  outStream.write(`<p>날짜: ${photo.date.toString()}</p>`);
 }
